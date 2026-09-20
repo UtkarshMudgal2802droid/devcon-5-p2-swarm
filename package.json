@@ -1,0 +1,9 @@
+{
+  "name": "devcon-5-p2",
+  "private": true,
+  "workspaces": [
+    "schema",
+    "writer",
+    "reader"
+  ]
+}
