@@ -130,11 +130,28 @@ function App() {
             </button>
           </form>
 
-          {status && <p style={{ color: 'blue', marginTop: '1rem' }}>{status}</p>}
+          {status && <p style={{ color: '#0984e3', marginTop: '1.5rem', fontSize: '1.2rem' }}>{status}</p>}
           {reference && (
-            <div style={{ marginTop: '1rem', padding: '1rem', backgroundColor: '#eef' }}>
-              <strong>Record Reference (Save this!):</strong>
-              <p style={{ wordBreak: 'break-all' }}>{reference}</p>
+            <div style={{ marginTop: '1.5rem', padding: '1.5rem', backgroundColor: '#eef', borderRadius: '8px' }}>
+              <h3 style={{ margin: '0 0 1rem 0' }}>✅ Record Published Successfully!</h3>
+              <p style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Share this link with your group:</p>
+              
+              <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <input 
+                  readOnly 
+                  value={`${window.location.origin}/reader/#?record=${reference}`} 
+                  style={{ flex: 1, padding: '0.75rem', fontSize: '1.1rem', border: '1px solid #ccc', borderRadius: '4px' }}
+                />
+                <button 
+                  onClick={() => {
+                    navigator.clipboard.writeText(`${window.location.origin}/reader/#?record=${reference}`);
+                    alert("Link copied to clipboard!");
+                  }}
+                  style={{ padding: '0.75rem 1.5rem', fontSize: '1.1rem', backgroundColor: '#0984e3', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+                >
+                  Copy Link
+                </button>
+              </div>
             </div>
           )}
         </div>
