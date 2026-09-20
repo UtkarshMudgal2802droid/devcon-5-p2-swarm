@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { SwarmIdClient } from '@snaha/swarm-id'
 import { Bee } from '@ethersphere/bee-js'
-import { createSightingRecord } from 'schema'
+import { createSightingRecord } from './schema'
 
 const GATEWAY_URL = 'https://api.gateway.ethswarm.org/';
 

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { isSightingRecord } from 'schema'
+
 
 const GATEWAY_URL = 'https://api.gateway.ethswarm.org'
 
@@ -24,8 +24,8 @@ function App() {
       
       const data = await res.json()
       
-      // Test Case 3: Verify format identifier and version natively
-      if (!isSightingRecord(data)) {
+      // Test Case 3: Verify format identifier and version natively without shared code
+      if (!data || data._format !== 'deccan-birders-sighting' || data._version !== '1.0.0') {
         throw new Error("The fetched data is not a valid Deccan Birders Sighting Record (invalid format or version).")
       }
       
